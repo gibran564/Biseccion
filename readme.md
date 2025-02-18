@@ -12,10 +12,10 @@ El sistema también implementa el **método de disección**, el cual permite enc
 - **Método de disección**: Aplicado para encontrar raíces de ecuaciones mediante intervalos sucesivos.
 
 ## Método de Disección
-El **método de disección** es una técnica utilizada para encontrar raíces de ecuaciones de la forma \( f(x) = 0 \). Se basa en el principio de reducir iterativamente el intervalo de búsqueda hasta que se alcance una tolerancia deseada. Los pasos generales son:
-1. Seleccionar un intervalo \([a, b]\) tal que \( f(a) \cdot f(b) < 0 \), lo que indica la existencia de al menos una raíz en el intervalo.
-2. Dividir el intervalo en dos partes y evaluar el punto medio \( c = \frac{a + b}{2} \).
-3. Determinar en qué subintervalo \([a, c]\) o \([c, b]\) se encuentra la raíz en función del signo de \( f(c) \).
+El **método de disección** es una técnica utilizada para encontrar raíces de ecuaciones de la forma \$( f(x) = 0 \$). Se basa en el principio de reducir iterativamente el intervalo de búsqueda hasta que se alcance una tolerancia deseada. Los pasos generales son:
+1. Seleccionar un intervalo \$([a, b]\$) tal que \$( f(a) \cdot f(b) < 0 \$), lo que indica la existencia de al menos una raíz en el intervalo.
+2. Dividir el intervalo en dos partes y evaluar el punto medio \$( c = \frac{a + b}{2} \$).
+3. Determinar en qué subintervalo \$([a, c]\$) o \$([c, b]\$) se encuentra la raíz en función del signo de \$( f(c) \$).
 4. Repetir el proceso hasta alcanzar una precisión deseada.
 
 ## Instrucciones de Uso
