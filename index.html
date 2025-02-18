@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Método de biseccion</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <div id="ecuacion-container" class="container">
+        <h1 class="titulo">Método de Biseccion</h1>
+        
+        <div class="instrucciones">
+            <h3>Instrucciones de Uso</h3>
+            <ul>
+                <li>Ingrese una ecuación cuadrática en la forma: <strong>ax² + bx + c</strong></li>
+                <li>Use <strong>x²</strong> o <strong>x^2</strong> para el término cuadrático</li>
+                <li>Ejemplos válidos: <code>2x² + 3x + 1</code>, <code>-x² + 4x - 4</code></li>
+            </ul>
+        </div>
+
+        <div class="input-section">
+            <input type="text" 
+                   id="ecuacion" 
+                   placeholder="Ejemplo: x² + 2x + 1"
+                   title="Ingrese una ecuación cuadrática">
+            <button id="btnProcesar">Analizar</button>
+        </div>
+
+        <div class="visualization-section">
+            <div class="canvas-container">
+                <canvas id="grafica" width="400" height="300"></canvas>
+            </div>
+            
+            <div class="results-container">
+                <div id="resultado"></div>
+                
+                <div class="biseccion-results">
+                    <h3>Resultados del Método de Bisección</h3>
+                    <div id="biseccion-data"></div>
+                    <table id="tabla-iteraciones">
+                        <thead>
+                            <tr>
+                                <th>Iteración</th>
+                                <th>Intervalo</th>
+                                <th>Raíz Aproximada</th>
+                                <th>Error</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts/script.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('#ecuacion-container').ecuacionCuadratica({
+                inputSelector: '#ecuacion',
+                resultadoSelector: '#resultado',
+                canvasSelector: '#grafica'
+            });
+
+            // Hacer que el botón también ejecute la validación
+            $('#btnProcesar').on('click', function() {
+                $('#ecuacion').trigger('keyup');
+            });
+        });
+    </script>
+
+</body>
+</html>
