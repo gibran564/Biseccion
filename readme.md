@@ -32,7 +32,7 @@ El **método de disección** es una técnica utilizada para encontrar raíces de
 ## Integrantes del Equipo
 - **Espituñal Villanueva Christian Gibran**
 - **José Ángel**
-- **RGZ Jaret**
+- **Rodriguez Villa Luis Jaret 22041191**
 
 ## Licencia
 Este proyecto es de código abierto y puede ser utilizado con fines educativos y de desarrollo.
