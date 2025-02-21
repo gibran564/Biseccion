@@ -1,0 +1,100 @@
+$(document).ready(function() {
+    // Función cuadrática: f(x) = ax² + bx + c
+    function f(x, a, b, c) {
+        return a * x * x + b * x + c;
+    }
+
+    // Función de bisección
+    function biseccion(a, b, c, x1, x2, tolerance) {
+        var f1 = f(x1, a, b, c);
+        var f2 = f(x2, a, b, c);
+
+        if (f1 * f2 > 0) {
+            alert("No hay una raíz en este intervalo.");
+            return null;
+        }
+
+        var root;
+        var iteration = 0;
+        var iterationsData = [];
+
+        while (Math.abs(x2 - x1) > tolerance) {
+            root = (x1 + x2) / 2;
+            var fRoot = f(root, a, b, c);
+            var error = Math.abs(x2 - x1);
+
+            iterationsData.push({
+                iteration: iteration + 1,
+                interval: "[" + x1.toFixed(4) + ", " + x2.toFixed(4) + "]",
+                root: root.toFixed(4),
+                error: error.toFixed(4)
+            });
+
+            if (fRoot === 0) break;
+
+            if (f1 * fRoot < 0) {
+                x2 = root;
+                f2 = fRoot;
+            } else {
+                x1 = root;
+                f1 = fRoot;
+            }
+
+            iteration++;
+            if (iteration > 1000) {  // Límites para evitar ciclos infinitos
+                alert("El método no converge.");
+                break;
+            }
+        }
+        return iterationsData;
+    }
+
+    // Acción al presionar "Analizar"
+    $('#btnProcesar').on('click', function() {
+        var equation = $('#ecuacion').val();
+        var coef = parseEquation(equation);
+
+        if (!coef) return;
+
+        var a = coef.a, b = coef.b, c = coef.c;
+        
+        // Intervalo y tolerancia para el método de bisección
+        var x1 = -10; // Valor de x1 (puedes permitir que el usuario lo ingrese si quieres)
+        var x2 = 10;  // Valor de x2 (puedes permitir que el usuario lo ingrese si quieres)
+        var tolerance = 0.0001;
+
+        // Llamar a la función de bisección
+        var iterationsData = biseccion(a, b, c, x1, x2, tolerance);
+
+        // Mostrar los resultados en la tabla
+        var $table = $('#tabla-iteraciones tbody');
+        $table.empty(); // Limpiar la tabla
+
+        if (iterationsData) {
+            $.each(iterationsData, function(index, data) {
+                $table.append(
+                    "<tr><td>" + data.iteration + "</td><td>" + data.interval + "</td><td>" + data.root + "</td><td>" + data.error + "</td></tr>"
+                );
+            });
+        }
+
+        // Mostrar los resultados de la ecuación
+        $('#biseccion-data').html('<strong>Coeficientes:</strong> a = ' + a + ', b = ' + b + ', c = ' + c);
+    });
+
+    // Función para extraer los coeficientes a, b y c de la ecuación
+    function parseEquation(equation) {
+        var regex = /([+-]?\d*\.?\d*)x\^2\s*([+-]?\s*\d*\.?\d*)x\s*([+-]?\s*\d*\.?\d*)/;
+        var match = equation.match(regex);
+        
+        if (match) {
+            var a = parseFloat(match[1]) || 1; // a es el coeficiente de x²
+            var b = parseFloat(match[2]) || 0; // b es el coeficiente de x
+            var c = parseFloat(match[3]) || 0; // c es el coeficiente constante
+            return { a: a, b: b, c: c };
+        } else {
+            alert("Ecuación no válida. Intenta con la forma ax² + bx + c");
+            return null;
+        }
+    }
+});
