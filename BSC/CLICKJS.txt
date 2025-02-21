@@ -1,0 +1,23 @@
+function validarEcuacion(ecuacion) {
+    // Reemplaza "x²" por "x^2" para hacerlo consistente
+    ecuacion = ecuacion.replace(/x²/g, 'x^2');
+
+    // Expresión regular para validar la ecuación cuadrática ax² + bx + c
+    const regex = /^[+-]?\d*x\^2\s*[+-]?\d*x\s*[+-]?\d+$/;
+
+    // Comprobar si la ecuación es válida
+    if (regex.test(ecuacion)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+***********************IMPLEMENTACION****************************************************
+$('#btnProcesar').on('click', function() {
+    var ecuacion = $('#ecuacion').val();
+    
+    // Aquí va la lógica de validación que ya tienes
+});
+
+********************************EXAMP*****************************
