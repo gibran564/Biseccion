@@ -31,7 +31,7 @@ El **método de disección** es una técnica utilizada para encontrar raíces de
 
 ## Integrantes del Equipo
 - **Espituñal Villanueva Christian Gibran 20041243**
-- **José Ángel**
+- **González Ortiz José Ángel 22041140**
 - **Rodriguez Villa Luis Jaret 22041191**
 - **Manuel Guerrero Morales 23041209**
 
