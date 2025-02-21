@@ -33,7 +33,7 @@ El **método de disección** es una técnica utilizada para encontrar raíces de
 - **Espituñal Villanueva Christian Gibran 20041243**
 - **José Ángel**
 - **Rodriguez Villa Luis Jaret 22041191**
-- **Manuel**
+- **Manuel Guerrero Morales**
 
 ## Licencia
 Este proyecto es de código abierto y puede ser utilizado con fines educativos y de desarrollo.
