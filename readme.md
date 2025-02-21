@@ -30,9 +30,10 @@ El **método de disección** es una técnica utilizada para encontrar raíces de
 - **Canvas**: Representación gráfica de la ecuación.
 
 ## Integrantes del Equipo
-- **Espituñal Villanueva Christian Gibran**
+- **Espituñal Villanueva Christian Gibran 20041243**
 - **José Ángel**
 - **Rodriguez Villa Luis Jaret 22041191**
+- **Manuel**
 
 ## Licencia
 Este proyecto es de código abierto y puede ser utilizado con fines educativos y de desarrollo.
